@@ -45,20 +45,19 @@ y2=x0;
 v2=[];
 uu2=[];
 %plot path for data driven control vehicle
-%  while(1)
-%        
-%      
-%      if (target.isElement(y(end,:))) 
-%        break;
-%      end 
-%    
-%      u=controller.getInputs(y(end,:));
-%      v=[v; u(1,:)];
-%      [t x]=ode45(@unicycle_ode,[0 .25], y(end,:), [],u(1,:));
-%    
-%      y=[y; x(end,:)];
-%   end
-%   disp('DD complete')
+  while(1)        
+      
+      if (target.isElement(y(end,:))) 
+        break;
+      end 
+    
+      u=controller.getInputs(y(end,:));
+      v=[v; u(1,:)];
+      [t x]=ode45(@unicycle_ode,[0 .25], y(end,:), [],u(1,:));
+    
+      y=[y; x(end,:)];
+   end
+   disp('DD complete')
 %plot path for model based control vehicle
 disp('start')
 while(1)
